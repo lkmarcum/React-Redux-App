@@ -7,7 +7,7 @@ const Brewery = props => {
   return (
     <div className="brewery-card">
       <h3>{props.brewery.name}</h3>
-      <h4>{props.brewery.type}</h4>
+      <h4>{props.brewery.brewery_type}</h4>
       <p>
         {props.brewery.street} <br />
         {props.brewery.city}, {props.brewery.state} {props.brewery.postal_code}
