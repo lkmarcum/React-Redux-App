@@ -73,7 +73,12 @@ const BreweryList = props => {
           </label>
           <button onClick={() => props.getBreweries(state)}>
             {props.isLoading ? (
-              <Loader type="TailSpin" color="#00BFFF" height="15" width="15" />
+              <Loader
+                type="TailSpin"
+                color="rgb(5, 134, 113)"
+                height="25"
+                width="25"
+              />
             ) : (
               "Find Breweries"
             )}
