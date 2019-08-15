@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
+import Brewery from "./Brewery";
 
 const BreweryList = props => {
   const [state, setState] = useState("");
@@ -77,7 +78,9 @@ const BreweryList = props => {
         </button>
       </div>
       <div className="brewery-container">
-        <h2>Breweries Go Here</h2>
+        {props.breweries.map(brewery => (
+          <Brewery brewery={brewery} key={brewery.id} />
+        ))}
       </div>
     </>
   );
