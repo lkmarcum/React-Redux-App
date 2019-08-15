@@ -11,9 +11,10 @@ export const getBreweries = state => {
       .get(`https://api.openbrewerydb.org/breweries?by_state=${state}`)
       .then(res => {
         console.log("axios res: ", res);
+        dispatch({ type: FETCH_BREWERY_SUCCESS, payload: res.data });
       })
       .catch(err => {
-        console.log(err);
+        dispatch({ type: FETCH_BREWERY_FAIL, paylod: err.response });
       });
   };
 };
