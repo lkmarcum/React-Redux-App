@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import Brewery from "./Brewery";
+import { getBreweries } from "../actions";
 
 const BreweryList = props => {
   const [state, setState] = useState("");
@@ -69,7 +70,7 @@ const BreweryList = props => {
             <option value="wyoming">Wyoming</option>
           </select>
         </label>
-        <button>
+        <button onClick={() => props.getBreweries(state)}>
           {props.isLoading ? (
             <Loader type="TailSpin" color="#00BFFF" height="15" width="15" />
           ) : (
@@ -78,9 +79,10 @@ const BreweryList = props => {
         </button>
       </div>
       <div className="brewery-container">
-        {props.breweries.map(brewery => (
-          <Brewery brewery={brewery} key={brewery.id} />
-        ))}
+        {props.breweries &&
+          props.breweries.map(brewery => (
+            <Brewery brewery={brewery} key={brewery.id} />
+          ))}
       </div>
     </>
   );
@@ -95,5 +97,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getBreweries }
 )(BreweryList);

@@ -1,3 +1,10 @@
+import {
+  getBreweries,
+  FETCH_BREWERY_START,
+  FETCH_BREWERY_SUCCESS,
+  FETCH_BREWERY_FAIL
+} from "../actions";
+
 const initialState = {
   breweries: [],
   isLoading: false,
